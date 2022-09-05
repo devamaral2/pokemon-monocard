@@ -23,6 +23,16 @@
     ],
     "rules": {
         "react/no-unescaped-entities": "off",
-        "@next/next/no-page-custom-font": "off"
+        "@next/next/no-page-custom-font": "off",
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ]
     }
 }
