@@ -1,9 +1,9 @@
-// eslint-disable-next-line import/extensions
 import connectToDatabase from './connection';
 
 const savedModel = async () => {
   const db = await connectToDatabase();
-  return db.collection('saved');
+  const res = await db.collection('saved');
+  return res;
 };
 
 export default savedModel;
