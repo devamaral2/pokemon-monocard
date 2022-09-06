@@ -1,4 +1,5 @@
 import connectToDatabase from '../model/connection';
+import * as i from '../interfaces';
 
 export default class SavedRepository {
   constructor(private connection = connectToDatabase) {
@@ -20,5 +21,17 @@ export default class SavedRepository {
       types: pokemon.types,
     }));
     return finalList;
+  }
+
+  async create(
+    name: string,
+    timestamp: Date,
+    contactList: i.IContact[],
+    types: i.IType[],
+  ) {
+    const model = await this.getCollection();
+    await model.insertOne({
+      name, timestamp, contactList, types,
+    });
   }
 }
