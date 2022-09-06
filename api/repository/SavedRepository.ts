@@ -1,12 +1,13 @@
 import connectToDatabase from '../connection';
 import * as i from '../interfaces/IPokemon';
+import ISavedRepository from '../interfaces/ISavedRepository';
 
-export default class SavedRepository {
+export default class SavedRepository implements ISavedRepository {
   constructor(private connection = connectToDatabase) {
     this.connection = connection;
   }
 
-  async getCollection() {
+  async getCollection(): Promise<any> {
     const db = await this.connection();
     return db.collection('saved');
   }
