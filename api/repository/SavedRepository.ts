@@ -1,5 +1,5 @@
-import connectToDatabase from '../model/connection';
-import * as i from '../interfaces';
+import connectToDatabase from '../connection';
+import * as i from '../interfaces/IPokemon';
 
 export default class SavedRepository {
   constructor(private connection = connectToDatabase) {
@@ -11,11 +11,14 @@ export default class SavedRepository {
     return db.collection('saved');
   }
 
-  async getAll() {
-    const model = await this.getCollection();
-    const pokemons = await model.find().toArray();
+  // Tentei utilizar o mongoose para criar models para as funções
+  // mas não consegui realizar a conecção com o mongoDb atlas.
+  async getAll(): Promise<any> {
+    const saved = await this.getCollection();
+    const pokemons = await saved.find().toArray();
     const finalList = pokemons.map((pokemon: any) => ({
       name: pokemon.name,
+      pokemonId: pokemon.pokemonId,
       timestamp: pokemon.timestamp,
       contactList: pokemon.contactList,
       types: pokemon.types,
@@ -25,13 +28,14 @@ export default class SavedRepository {
 
   async create(
     name: string,
+    pokemonId: number,
     timestamp: Date,
     contactList: i.IContact[],
     types: i.IType[],
-  ) {
-    const model = await this.getCollection();
-    await model.insertOne({
-      name, timestamp, contactList, types,
+  ): Promise<void> {
+    const saved = await this.getCollection();
+    await saved.insertOne({
+      name, pokemonId, timestamp, contactList, types,
     });
   }
 }
