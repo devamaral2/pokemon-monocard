@@ -1,0 +1,33 @@
+.container__logo__monocard {
+  position: absolute;
+  top: 13rem;
+}
+
+.container__links {
+  margin: 1rem;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.container__link {
+  width: 90px;
+  padding: 8px;
+  border-radius: 2rem;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link__off { 
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.link__on {
+  background-color: rgb(254,192,12);
+  border: 5px solid rgb(47,70,153);
+}
