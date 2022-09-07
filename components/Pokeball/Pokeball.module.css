@@ -1,0 +1,122 @@
+.pokeball {
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  animation: wobble 3s infinite;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to right, crimson, darkred);
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to right, white, lightgrey);
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: black;
+  transform: translateY(-50%);
+}
+
+.middle::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: black;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.middle::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to right, white, lightgrey);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shadow {
+  position: absolute;
+  top: calc(50% + 130px);
+  left: 50%;
+  width: 200px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  filter: blue(10px);
+  transform: translate(-50%, -50%);
+}
+
+.span__messange {
+  position: absolute;
+  top: calc(50% + 220px);
+}
+
+
+@keyframes wobble {
+
+  0%,
+  20%,
+  24%,
+  28%,
+  80%,
+  84%,
+  88%,
+  92%,
+  96%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  22%,
+  82%,
+  90% {
+    transform: rotate(4deg);
+  }
+
+  26%,
+  86%,
+  94% {
+    transform: rotate(-4deg);
+  }
+}
+
+@media only screen and (max-device-height: 800px) {
+  .pokeball {
+    top: calc(50% - 10px);
+  }
+  .shadow {
+    top: calc(50% + 180px);
+  }
+  .span__messange {
+    top: calc(50% + 250px);
+  }
+}

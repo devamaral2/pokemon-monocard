@@ -4,9 +4,9 @@
 }
 
 .container__links {
-  margin: 1rem;
+  margin: 15px;
   display: flex;
-  width: 50%;
+  width: 300px;
   justify-content: space-around;
 }
 
@@ -22,12 +22,18 @@
   align-items: center;
 }
 
-.link__off { 
+.link__off {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .link__on {
-  background-color: rgb(254,192,12);
-  border: 5px solid rgb(47,70,153);
+  background-color: rgb(254, 192, 12);
+  border: 5px solid rgb(47, 70, 153);
+}
+
+@media only screen and (max-device-width: 600px) {
+  .container__links {
+    margin: 30px;
+  }
 }
