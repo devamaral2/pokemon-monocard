@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
 
+const localhost = 'http://localhost:3000/';
+const vercel = 'https://pokemon-monocard.vercel.app/';
+
 describe('Todos os testes de integração', () => {
   before(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit(localhost || vercel);
   });
 
   describe('Testes dos elementos presentes no Header', () => {
@@ -14,7 +17,7 @@ describe('Todos os testes de integração', () => {
         }).as('mockList');
       });
     });
-    // cy.visit('https://pokemon-monocard.vercel.app/');
+
     it('Todos os elementos são renderizados corretamente', () => {
       cy.get('[data-cy=pokemon-logo]');
       cy.get('[data-cy=monocard-logo]');
@@ -23,11 +26,11 @@ describe('Todos os testes de integração', () => {
     });
     it('O link para a pagina de lista funciona corretamente', () => {
       cy.get('[data-cy=list-link]').click();
-      cy.url().should('be.equal', 'http://localhost:3000/list');
+      cy.url().should('be.equal', `${localhost || vercel}list`);
     });
     it('O link para a pagina da pokebola funciona corretamente', () => {
       cy.get('[data-cy=pokebola-link]').click();
-      cy.url().should('be.equal', 'http://localhost:3000/');
+      cy.url().should('be.equal', (localhost || vercel));
     });
   });
 
@@ -115,4 +118,4 @@ describe('Todos os testes de integração', () => {
   });
 });
 
-export { };
+export {};
