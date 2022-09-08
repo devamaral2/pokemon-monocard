@@ -3,6 +3,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 import Image from 'next/image';
+import { useState } from 'react';
+import { GrAddCircle } from 'react-icons/gr';
+import InputNewContact from '../InputNewContact/InputNewContact';
 import PokemonTypes from '../PokemonTypes/PokemonTypes';
 import styles from './Pokemon.module.css';
 
@@ -12,6 +15,7 @@ interface IType {
 }
 
 export default function Pokemon({ pokemon, getPokemonData }: any) {
+  const [typing, setTypying] = useState(false);
   return (
     <main className={styles.container}>
       <div
@@ -33,7 +37,7 @@ export default function Pokemon({ pokemon, getPokemonData }: any) {
                 alt="pokemon "
               />
               <div className={styles.container__types}>
-                {pokemon.types.map((type:IType, index: number) => (
+                {pokemon.types.map((type: IType, index: number) => (
                   <PokemonTypes key={index} type={type} />))}
               </div>
             </div>
@@ -41,13 +45,17 @@ export default function Pokemon({ pokemon, getPokemonData }: any) {
           <h1 className={styles.title__pokemonName}>
             {pokemon.name}
           </h1>
-          {/* <div className={styles.container__contactListButton}> */}
-            <div className={styles.division__contactList} />
-            <h1>
-            Lista de contatos
-          </h1>
-            {/* <div className={styles.button__addContact} /> */}
-          {/* </div> */}
+          <div className={styles.division__contactList} />
+          <div className={styles.container__listTitle}>
+            <h1 className={styles.title__contactList}>
+              Lista de contatos
+            </h1>
+            <GrAddCircle
+              onClick={() => setTypying((prev) => !prev)}
+              className={styles.button__addContact}
+            />
+          </div>
+          { typing && <InputNewContact /> }
         </div>
       )}
     </main>
