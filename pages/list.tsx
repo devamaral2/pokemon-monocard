@@ -23,7 +23,8 @@ export default function List() {
     <div className="container">
       <Header pathname={router.pathname} />
       <main className="container__savedList">
-        {pokemons.map((entry: IPokemon, i: number) => <PokemonCard key={i} pokemon={entry} />)}
+        {pokemons
+          .map((entry: IPokemon, i: number) => <PokemonCard key={i} pokemon={entry} i={i} />)}
       </main>
     </div>
   );

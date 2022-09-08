@@ -6,10 +6,10 @@ import CardContact from '../CardContact/CardContact';
 import CardType from '../CardType/CardType';
 import styles from './PokemonCard.module.css';
 
-export default function PokemonCard({ pokemon, key }: { pokemon: IPokemon, key: number }) {
+export default function PokemonCard({ pokemon, i }: { pokemon: IPokemon, i: number }) {
   return (
-    <div data-cy={`card${key}`} className={styles.container}>
-      <div data-cy={`card-name${key}`} className={styles.container__top}>
+    <div data-cy={`card-${i}`} className={styles.container}>
+      <div data-cy={`card-name-${i}`} className={styles.container__top}>
         <h2>{pokemon.name}</h2>
         <div className={styles.container__image}>
           <Image
@@ -24,13 +24,15 @@ export default function PokemonCard({ pokemon, key }: { pokemon: IPokemon, key: 
         Pokemon types:
         <div className={styles.container__types}>
           {pokemon.types.length !== 0
-            && pokemon.types.map((type: string, i: number) => <CardType key={i} type={type} />)}
+            && pokemon.types
+              .map((type: string, index: number) => <CardType key={index} type={type} i={index} />)}
         </div>
         Pokemon links:
         <div className={styles.container__contactList}>
           {pokemon.contactList.length !== 0
             && pokemon.contactList
-              .map((contact: string, i: number) => <CardContact key={i} contact={contact} />)}
+              .map((contact: string, index: number) => (
+                <CardContact key={index} contact={contact} i={index} />))}
         </div>
       </div>
     </div>

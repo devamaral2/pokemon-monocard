@@ -93,6 +93,10 @@ describe('Todos os testes de integração', () => {
 
     it('Todos os nomes de pokemon da lista foram renderizados', () => {
       cy.get('[data-cy=list-link]').click();
+      cy.get('[data-cy=card-0]').children('[data-cy=contact-1]');
+      cy.get('[data-cy=card-1]');
+      cy.get('[data-cy=card-name-0]').contains('João José');
+      cy.get('[data-cy=card-name-1]').contains('Aldair o José');
     });
     // it('O link para a pagina de lista funciona corretamente', () => {
     //   cy.url().should('be.equal', 'http://localhost:3000/list');
