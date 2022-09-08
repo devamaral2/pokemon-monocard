@@ -9,6 +9,7 @@ import getPokemon from '../externalApi/getPokemon';
 export default function Home() {
   const [pokeballClicked, setPokeballClicked] = useState(false);
   const [pokemon, setPokemon] = useState({} as any);
+  const [contact, setContact] = useState('');
   const router = useRouter();
 
   const getPokemonData = async () => {
@@ -29,6 +30,8 @@ export default function Home() {
           <Pokemon
             getPokemonData={getPokemonData}
             pokemon={pokemon}
+            contact={contact}
+            setContact={setContact}
           />
         )
         : (<Pokeball generatePokemon={generatePokemon} />)}

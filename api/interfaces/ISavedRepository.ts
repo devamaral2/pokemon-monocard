@@ -4,12 +4,13 @@ import * as i from './IPokemon';
 
 export default interface ISavedRepository {
   getCollection(): Promise<any>;
-  getAll(): Promise<any>;
+  getAll(): Promise<i.IPokemon[]>;
   create(
     name: string,
     pokemonId: number,
+    image: string,
     timestamp: Date,
-    contactList: i.IContact[],
+    contactList: i.IContact[] | [],
     types: i.IType[],
   ): Promise<void>;
 }

@@ -10,7 +10,7 @@ export default class SavedService implements ISavedService {
     this._repository = repository;
   }
 
-  async getAll(): Promise<any> {
+  async getAll(): Promise<i.IPokemon[]> {
     const pokemons = await this._repository.getAll();
     return pokemons;
   }
@@ -18,9 +18,10 @@ export default class SavedService implements ISavedService {
   async create(
     name: string,
     pokemonId: number,
-    contactList: i.IContact[],
+    image: string,
+    contactList: i.IContact[] | [],
     types: i.IType[],
   ): Promise<void> {
-    await this._repository.create(name, pokemonId, new Date(), contactList, types);
+    await this._repository.create(name, pokemonId, image, new Date(), contactList, types);
   }
 }

@@ -9,11 +9,9 @@ export interface IType {
 
 export interface IPokemon {
   name: string,
+  pokemonId: number,
+  image: string,
   timestamp: Date,
-  contactList: IContact[],
+  contactList: IContact[] | [],
   types: IType[],
-}
-
-export interface IPokemonWithId extends IPokemon {
-  _id: string
 }

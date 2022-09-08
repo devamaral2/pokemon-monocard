@@ -14,7 +14,12 @@ interface IType {
   url: string,
 }
 
-export default function Pokemon({ pokemon, getPokemonData }: any) {
+export default function Pokemon({
+  pokemon,
+  getPokemonData,
+  contact,
+  setContact,
+}: any) {
   const [typing, setTypying] = useState(false);
   return (
     <main className={styles.container}>
@@ -55,7 +60,12 @@ export default function Pokemon({ pokemon, getPokemonData }: any) {
               className={styles.button__addContact}
             />
           </div>
-          { typing && <InputNewContact /> }
+          { typing && (
+            <InputNewContact
+              contact={contact}
+              setContact={setContact}
+            />
+          )}
         </div>
       )}
     </main>

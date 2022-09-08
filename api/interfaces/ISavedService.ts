@@ -3,11 +3,12 @@
 import * as i from './IPokemon';
 
 export default interface ISavedService {
-  getAll(): Promise<any>;
+  getAll(): Promise<i.IPokemon[]>;
   create(
     name: string,
     pokemonId: number,
-    contactList: i.IContact[],
+    image: string,
+    contactList: i.IContact[] | [],
     types: i.IType[],
   ): Promise<void>;
 }
