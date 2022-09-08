@@ -13,12 +13,14 @@ export default function InputNewContact({ setContact, contact, addContact }: IPr
   return (
     <div className={styles.container}>
       <input
+        data-cy="newContact-input"
         className={styles.input__newContact}
         value={contact}
         onChange={(e) => setContact(e.target.value)}
         placeholder="Coloque aqui o link de contato"
       />
       <RiSendPlane2Line
+        data-cy="newContact-add-btn"
         className={styles.buttom__addNewContact}
         onClick={addContact}
       />

@@ -7,10 +7,10 @@ describe('Todos os testes de integração', () => {
 
   describe('Testes dos elementos presentes no Header', () => {
     // cy.fixture('mockList').then((mockList) => {
-    //   cy.intercept('GET', '**pokemon', {
-    //     statusCode: 200,
-    //     body: mockList,
-    //   }).as('mockList');
+    // cy.intercept('GET', '**pokemon', {
+    //   statusCode: 200,
+    //   body: mockList,
+    // }).as('mockList');
     // });
     // cy.visit('https://pokemon-monocard.vercel.app/');
     it('Todos os elementos são renderizados corretamente', () => {
@@ -36,6 +36,12 @@ describe('Todos os testes de integração', () => {
           statusCode: 200,
           body: mockPokemon,
         }).as('mockPokemon');
+        cy.fixture('mockPokemon').then((mock) => {
+          cy.intercept('POST', '**pokemon', {
+            statusCode: 203,
+            body: mock,
+          });
+        }).as('mockPokemon');
       });
     });
     it('A pokebola é renderiza corretamente e pode ser clicada', () => {
@@ -51,14 +57,20 @@ describe('Todos os testes de integração', () => {
       cy.get('[data-cy=confirmNewName-btn]').click();
       cy.get('[data-cy=pokemon-name]').contains('João José, o eterno');
     });
-    // it('O usuário consegue adicionar contatos', () => {
-    //   cy.get('[data-cy=pokemon-name]').click();
-    //   cy.get('[data-cy=newName-input]').type('Jonas Silva');
-    //   cy.get('[data-cy=confirmNewName-btn]').click();
-    //   cy.get('[data-cy=pokemon-name]').contains('Jonas Silva');
-    // });
+    it('O usuário consegue adicionar novos links', () => {
+      cy.get('[data-cy=newContact-btn]').click();
+      cy.get('[data-cy=newContact-input]').type('https://www.linkedin.com/in/rafael-amaral-naves-avelar/');
+      cy.get('[data-cy=newContact-add-btn]').click();
+      cy.get('[data-cy=contact-name-0]').contains('linkedin');
+      cy.get('[data-cy=newContact-btn]').click();
+      cy.get('[data-cy=newContact-input]').type('https://www.instagram.com/luvadepedreiro/?hl=en');
+      cy.get('[data-cy=newContact-add-btn]').click();
+      cy.get('[data-cy=contact-name-1]').contains('instagram');
+    });
+    it('O usuário consegue adicionar o pokemon à sua lista', () => {
+      cy.get('[data-cy=btn-add-pokemon]').click();
+    });
   });
-
   // describe('Teste do btn para escolher outro pokemon', () => {
   //   before(() => {
   //     cy.fixture('mockPokemon2').then((mockPokemon2) => {

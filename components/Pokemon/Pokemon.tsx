@@ -96,6 +96,7 @@ export default function Pokemon({
               Lista de contatos
             </h1>
             <GrAddCircle
+              data-cy="newContact-btn"
               onClick={() => setTypying((prev: any) => !prev)}
               className={styles.button__addContact}
             />
@@ -108,10 +109,11 @@ export default function Pokemon({
             />
           )}
           {pokemon.contactList.map((cont: string, i: number) => (
-            <ContactList key={i} contact={cont} />))}
+            <ContactList key={i} contact={cont} i={i} />))}
         </div>
       )}
       <div
+        data-cy="btn-add-pokemon"
         className={styles.button__otherPokemon}
         onClick={savePokemon}
       >
