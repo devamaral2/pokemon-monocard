@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable semi */
-import * as i from './IPokemon';
+import IPokemon from './IPokemon';
 
 export default interface ISavedService {
-  getAll(): Promise<any>;
+  getAll(): Promise<IPokemon[]>;
   create(
     name: string,
     pokemonId: number,
-    contactList: i.IContact[],
-    types: i.IType[],
+    image: string,
+    contactList: string[] | [],
+    types: string[],
   ): Promise<void>;
 }

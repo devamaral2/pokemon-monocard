@@ -1,0 +1,33 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color:aliceblue;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container__savedList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-device-width: 855px) {
+  .container__savedList {
+    flex-direction: column;
+    align-items: center;
+  }
+}

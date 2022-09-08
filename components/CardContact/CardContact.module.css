@@ -1,0 +1,13 @@
+.container {
+  margin: 0.3rem;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center; 
+  overflow: hidden;
+}
+
+.text__link {
+  margin-left: 0.5rem;
+  width: 300px;
+}

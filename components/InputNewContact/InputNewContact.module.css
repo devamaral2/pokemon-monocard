@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.input__newContact {
+  background-color: transparent;
+  outline: none;
+  font-size: 1.1rem;
+  appearance: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid gray;
+  width: 80%;
+  height: 30px;
+}
+
+.buttom__addNewContact {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}

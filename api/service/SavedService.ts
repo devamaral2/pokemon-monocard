@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import ISavedRepository from '../interfaces/ISavedRepository';
-import * as i from '../interfaces/IPokemon';
+import IPokemon from '../interfaces/IPokemon';
 import ISavedService from '../interfaces/ISavedService';
 
 export default class SavedService implements ISavedService {
@@ -10,7 +10,7 @@ export default class SavedService implements ISavedService {
     this._repository = repository;
   }
 
-  async getAll(): Promise<any> {
+  async getAll(): Promise<IPokemon[]> {
     const pokemons = await this._repository.getAll();
     return pokemons;
   }
@@ -18,9 +18,10 @@ export default class SavedService implements ISavedService {
   async create(
     name: string,
     pokemonId: number,
-    contactList: i.IContact[],
-    types: i.IType[],
+    image: string,
+    contactList: string[] | [],
+    types: string[],
   ): Promise<void> {
-    await this._repository.create(name, pokemonId, new Date(), contactList, types);
+    await this._repository.create(name, pokemonId, image, new Date(), contactList, types);
   }
 }

@@ -1,5 +1,5 @@
 import connectToDatabase from '../connection';
-import * as i from '../interfaces/IPokemon';
+import IPokemon from '../interfaces/IPokemon';
 import ISavedRepository from '../interfaces/ISavedRepository';
 
 export default class SavedRepository implements ISavedRepository {
@@ -12,14 +12,13 @@ export default class SavedRepository implements ISavedRepository {
     return db.collection('saved');
   }
 
-  // Tentei utilizar o mongoose para criar models para as funções
-  // mas não consegui realizar a conecção com o mongoDb atlas.
-  async getAll(): Promise<any> {
+  async getAll(): Promise<IPokemon[]> {
     const saved = await this.getCollection();
     const pokemons = await saved.find().toArray();
-    const finalList = pokemons.map((pokemon: any) => ({
+    const finalList = pokemons.map((pokemon: IPokemon) => ({
       name: pokemon.name,
       pokemonId: pokemon.pokemonId,
+      image: pokemon.image,
       timestamp: pokemon.timestamp,
       contactList: pokemon.contactList,
       types: pokemon.types,
@@ -30,13 +29,14 @@ export default class SavedRepository implements ISavedRepository {
   async create(
     name: string,
     pokemonId: number,
+    image: string,
     timestamp: Date,
-    contactList: i.IContact[],
-    types: i.IType[],
+    contactList: string[],
+    types: string[],
   ): Promise<void> {
     const saved = await this.getCollection();
     await saved.insertOne({
-      name, pokemonId, timestamp, contactList, types,
+      name, pokemonId, image, timestamp, contactList, types,
     });
   }
 }

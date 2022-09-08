@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import ISavedService from '../interfaces/ISavedService';
-import * as i from '../interfaces/IPokemon';
 
 export default class SavedController {
   private _service: ISavedService;
@@ -24,11 +23,12 @@ export default class SavedController {
     res: NextApiResponse,
     name: string,
     pokemonId: number,
-    contactList: i.IContact[],
-    types: i.IType[],
+    image: string,
+    contactList: string[],
+    types: string[],
   ) {
     try {
-      await this._service.create(name, pokemonId, contactList, types);
+      await this._service.create(name, pokemonId, image, contactList, types);
       res.status(201).end();
     } catch (e: any) {
       res.json({ messange: e.messange });
@@ -42,8 +42,8 @@ export default class SavedController {
     }
 
     if (method === 'POST') {
-      const { name, pokemonId, contactList, types } = req.body;
-      await this.create(res, name, pokemonId, contactList, types);
+      const { name, pokemonId, image, contactList, types } = req.body;
+      await this.create(res, name, pokemonId, image, contactList, types);
     }
   }
 }
