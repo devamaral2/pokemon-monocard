@@ -17,7 +17,7 @@ export default function Header({ pathname }: any) {
   }
 
   return (
-    <div className="container">
+    <header className={styles.container}>
       <Head>
         <title>Pokemon monocard</title>
         <link rel="icon" href="/pokebola-icon.png" />
@@ -50,6 +50,6 @@ export default function Header({ pathname }: any) {
           </div>
         </Link>
       </div>
-    </div>
+    </header>
   );
 }

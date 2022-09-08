@@ -1,12 +1,17 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 import Image from 'next/image';
 import styles from './Pokeball.module.css';
 
-export default function Pokeball() {
+export default function Pokeball({ generatePokemon }: any) {
   return (
-    <div className="container">
+    <main className="container">
       <div className={styles.shadow} />
-      <div className={styles.pokeball}>
+      <div
+        className={styles.pokeball}
+        onClick={generatePokemon}
+      >
         <div className={styles.top} />
         <div className={styles.bottom} />
         <div className={styles.middle} />
@@ -20,6 +25,6 @@ export default function Pokeball() {
           alt="pokemon logo"
         />
       </div>
-    </div>
+    </main>
   );
 }
