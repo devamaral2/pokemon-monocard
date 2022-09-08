@@ -2,7 +2,12 @@
 import { RiSendPlane2Line } from 'react-icons/ri';
 import styles from './InputNewContact.module.css';
 
-export default function InputNewContact({ setContact, contact }: any) {
+type IProps = {
+  setContact: any,
+  contact: string
+}
+
+export default function InputNewContact({ setContact, contact }: IProps) {
   return (
     <div className={styles.container}>
       <input

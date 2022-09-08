@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import styles from './Pokeball.module.css';
 
-export default function Pokeball({ generatePokemon }: any) {
+export default function Pokeball({ generatePokemon }: { generatePokemon(): Promise<void> }) {
   return (
     <main className="container">
       <div className={styles.shadow} />

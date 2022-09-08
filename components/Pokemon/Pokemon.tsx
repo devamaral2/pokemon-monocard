@@ -5,13 +5,16 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
+import { IPokemon } from '../../util/IPolemon';
 import InputNewContact from '../InputNewContact/InputNewContact';
 import PokemonTypes from '../PokemonTypes/PokemonTypes';
 import styles from './Pokemon.module.css';
 
-interface IType {
-  name: string,
-  url: string,
+type IProps = {
+  pokemon: IPokemon,
+  getPokemonData(): Promise<void>,
+  contact: string,
+  setContact: any
 }
 
 export default function Pokemon({
@@ -19,7 +22,7 @@ export default function Pokemon({
   getPokemonData,
   contact,
   setContact,
-}: any) {
+}: IProps) {
   const [typing, setTypying] = useState(false);
   return (
     <main className={styles.container}>
@@ -38,11 +41,11 @@ export default function Pokemon({
               <Image
                 width="200px"
                 height="200px"
-                src={pokemon.sprites.other.dream_world.front_default}
+                src={pokemon.image}
                 alt="pokemon "
               />
               <div className={styles.container__types}>
-                {pokemon.types.map((type: IType, index: number) => (
+                {pokemon.types.map((type: string, index: number) => (
                   <PokemonTypes key={index} type={type} />))}
               </div>
             </div>
