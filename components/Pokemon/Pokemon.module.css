@@ -89,7 +89,6 @@
 @media only screen and (max-device-height: 800px) {
   .pokemon__image {
     top: calc(50% + 150px);
-   
   }
 
 }

@@ -1,0 +1,32 @@
+.container {
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  width: 400px;
+}
+
+.container__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin: 1rem;
+}
+
+.container__types {
+  display: flex;
+  margin: 0.5rem;
+}
+
+.container__contactList {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
