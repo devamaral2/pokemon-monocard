@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
 import IPokemon from '../../util/IPolemon';
+import ContactList from '../ContactList/ContactList';
 import InputNewContact from '../InputNewContact/InputNewContact';
 import InputNewName from '../InputNewName/InputNewName';
 import PokemonTypes from '../PokemonTypes/PokemonTypes';
@@ -99,6 +100,8 @@ export default function Pokemon({
               addContact={addContact}
             />
           )}
+          { pokemon.contactList.map((cont: string, i: number) => (
+            <ContactList key={i} contact={cont} />))}
         </div>
       )}
     </main>
