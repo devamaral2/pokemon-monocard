@@ -1,6 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+}
+
 .pokeball {
   cursor: pointer;
-  position: absolute;
+  position: relative;
   top: calc(50% - 60px);
   left: calc(50% - 100px);
   width: 200px;
@@ -63,21 +70,21 @@
   transform: translate(-50%, -50%);
 }
 
-.shadow {
-  position: absolute;
+/* .shadow {
+  position: relative;
   top: calc(50% + 130px);
-  left: 50%;
+  left: 0;
   width: 200px;
   height: 80px;
   background: rgba(0, 0, 0, 0.35);
   border-radius: 50%;
   filter: blue(10px);
   transform: translate(-50%, -50%);
-}
+} */
 
 .span__messange {
-  position: absolute;
-  top: calc(50% + 220px);
+  /* position: relative; */
+  margin: 3rem;
 }
 
 

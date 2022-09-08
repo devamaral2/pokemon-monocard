@@ -46,8 +46,12 @@ export default function Pokemon({
   savePokemon,
 }: IProps) {
   return (
-    <main className={styles.container}>
+    <main
+      className={styles.container}
+      data-cy="pokemon"
+    >
       <div
+        data-cy="otherPokemon-btn"
         className={styles.button__otherPokemon}
         onClick={getPokemonData}
       >
@@ -79,6 +83,7 @@ export default function Pokemon({
             />
           ) : (
             <div
+              data-cy="pokemon-name"
               onClick={() => setTypyingNewName(true)}
               className={styles.title__pokemonName}
             >
@@ -91,6 +96,7 @@ export default function Pokemon({
               Lista de contatos
             </h1>
             <GrAddCircle
+              data-cy="newContact-btn"
               onClick={() => setTypying((prev: any) => !prev)}
               className={styles.button__addContact}
             />
@@ -103,10 +109,11 @@ export default function Pokemon({
             />
           )}
           {pokemon.contactList.map((cont: string, i: number) => (
-            <ContactList key={i} contact={cont} />))}
+            <ContactList key={i} contact={cont} i={i} />))}
         </div>
       )}
       <div
+        data-cy="btn-add-pokemon"
         className={styles.button__otherPokemon}
         onClick={savePokemon}
       >

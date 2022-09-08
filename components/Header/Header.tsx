@@ -39,14 +39,14 @@ export default function Header({ pathname }: any) {
         />
       </div>
       <div className={styles.container__links}>
-        <Link data-cy="pokebola-link" href="/">
+        <Link href="/">
           <div className={`${styles.container__link} ${settingLinkStyle('home')}`}>
-            <a>pokebola</a>
+            <a data-cy="pokebola-link">pokebola</a>
           </div>
         </Link>
-        <Link data-cy="list-link" href="/list">
+        <Link href="/list">
           <div className={`${styles.container__link} ${settingLinkStyle('list')}`}>
-            <a>lista</a>
+            <a data-cy="list-link">lista</a>
           </div>
         </Link>
       </div>
