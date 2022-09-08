@@ -6,7 +6,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
-import { IPokemon } from '../../util/IPolemon';
+import IPokemon from '../../util/IPolemon';
 import InputNewContact from '../InputNewContact/InputNewContact';
 import PokemonTypes from '../PokemonTypes/PokemonTypes';
 import styles from './Pokemon.module.css';

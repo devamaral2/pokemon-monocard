@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 import Pokeball from '../components/Pokeball/Pokeball';
 import Pokemon from '../components/Pokemon/Pokemon';
 import getPokemon from '../externalApi/getPokemon';
-import { IPokemon } from '../util/IPolemon';
+import IPokemon from '../util/IPolemon';
 
 /* eslint-disable react/jsx-filename-extension */
 export default function Home() {

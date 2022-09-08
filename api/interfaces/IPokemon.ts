@@ -1,13 +1,9 @@
-export interface IContact {
-  name: string,
-  link: string,
-}
-
-export interface IPokemon {
+/* eslint-disable semi */
+export default interface IPokemon {
   name: string,
   pokemonId: number,
   image: string,
   timestamp: Date,
-  contactList: IContact[] | [],
+  contactList: string[] | [],
   types: string[],
 }

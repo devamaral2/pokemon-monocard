@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import ISavedService from '../interfaces/ISavedService';
-import * as i from '../interfaces/IPokemon';
 
 export default class SavedController {
   private _service: ISavedService;
@@ -25,7 +24,7 @@ export default class SavedController {
     name: string,
     pokemonId: number,
     image: string,
-    contactList: i.IContact[],
+    contactList: string[],
     types: string[],
   ) {
     try {

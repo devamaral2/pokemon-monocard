@@ -1,5 +1,5 @@
 import connectToDatabase from '../connection';
-import * as i from '../interfaces/IPokemon';
+import IPokemon from '../interfaces/IPokemon';
 import ISavedRepository from '../interfaces/ISavedRepository';
 
 export default class SavedRepository implements ISavedRepository {
@@ -12,10 +12,10 @@ export default class SavedRepository implements ISavedRepository {
     return db.collection('saved');
   }
 
-  async getAll(): Promise<i.IPokemon[]> {
+  async getAll(): Promise<IPokemon[]> {
     const saved = await this.getCollection();
     const pokemons = await saved.find().toArray();
-    const finalList = pokemons.map((pokemon: i.IPokemon) => ({
+    const finalList = pokemons.map((pokemon: IPokemon) => ({
       name: pokemon.name,
       pokemonId: pokemon.pokemonId,
       image: pokemon.image,
@@ -31,7 +31,7 @@ export default class SavedRepository implements ISavedRepository {
     pokemonId: number,
     image: string,
     timestamp: Date,
-    contactList: i.IContact[],
+    contactList: string[],
     types: string[],
   ): Promise<void> {
     const saved = await this.getCollection();
