@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
 
 const localhost = 'http://localhost:3000/';
-const vercel = 'https://pokemon-monocard.vercel.app/';
 
 describe('Todos os testes de integração', () => {
   before(() => {
-    cy.visit(localhost || vercel);
+    cy.visit(localhost);
   });
 
   describe('Testes dos elementos presentes no Header', () => {
@@ -26,11 +25,11 @@ describe('Todos os testes de integração', () => {
     });
     it('O link para a pagina de lista funciona corretamente', () => {
       cy.get('[data-cy=list-link]').click();
-      cy.url().should('be.equal', `${localhost || vercel}list`);
+      cy.url().should('be.equal', `${localhost}list`);
     });
     it('O link para a pagina da pokebola funciona corretamente', () => {
       cy.get('[data-cy=pokebola-link]').click();
-      cy.url().should('be.equal', (localhost || vercel));
+      cy.url().should('be.equal', localhost);
     });
   });
 
