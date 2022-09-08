@@ -9,6 +9,7 @@ import { IPokemon } from '../util/IPolemon';
 /* eslint-disable react/jsx-filename-extension */
 export default function Home() {
   const [pokeballClicked, setPokeballClicked] = useState(false);
+  const [name, setName] = useState('');
   const [pokemon, setPokemon] = useState({} as IPokemon);
   const [contact, setContact] = useState('');
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function Home() {
       contactList: [],
       types: pokemonData.types.map((type: any) => type.type.name),
     };
+    setName(pokemonData.name);
     setPokemon(actualPokemon);
   };
 

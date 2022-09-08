@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-filename-extension */
 import { RiSendPlane2Line } from 'react-icons/ri';
 import styles from './InputNewContact.module.css';
 
 type IProps = {
-  setContact: any,
+  setContact: (cont: string) => void,
   contact: string
 }
 

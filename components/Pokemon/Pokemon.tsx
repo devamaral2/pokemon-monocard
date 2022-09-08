@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -14,7 +15,7 @@ type IProps = {
   pokemon: IPokemon,
   getPokemonData(): Promise<void>,
   contact: string,
-  setContact: any
+  setContact: (cont: string) => void
 }
 
 export default function Pokemon({
