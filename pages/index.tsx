@@ -10,8 +10,10 @@ import IPokemon from '../util/IPolemon';
 export default function Home() {
   const [pokeballClicked, setPokeballClicked] = useState(false);
   const [name, setName] = useState('');
+  const [typingNewName, setTypyingNewName] = useState(false);
   const [pokemon, setPokemon] = useState({} as IPokemon);
   const [contact, setContact] = useState('');
+  const [typing, setTypying] = useState(false);
   const router = useRouter();
 
   const getPokemonData = async () => {
@@ -25,6 +27,17 @@ export default function Home() {
     };
     setName(pokemonData.name);
     setPokemon(actualPokemon);
+  };
+
+  const addContact = () => {
+    setPokemon((prev) => ({ ...prev, contactList: [...prev.contactList, contact] }));
+    setTypying(false);
+    console.log(pokemon);
+  };
+
+  const changeName = () => {
+    setPokemon((prev) => ({ ...prev, name }));
+    setTypyingNewName(false);
   };
 
   const generatePokemon = async () => {
@@ -42,6 +55,14 @@ export default function Home() {
             pokemon={pokemon}
             contact={contact}
             setContact={setContact}
+            name={name}
+            setName={setName}
+            typyingNewName={typingNewName}
+            setTypyingNewName={setTypyingNewName}
+            changeName={changeName}
+            typing={typing}
+            setTypying={setTypying}
+            addContact={addContact}
           />
         )
         : (<Pokeball generatePokemon={generatePokemon} />)}

@@ -47,7 +47,10 @@
 }
 
 .title__pokemonName {
-  margin-bottom: 4rem;
+  cursor: pointer;
+  height: 4rem;
+  margin: 3rem;
+  font-size: 2rem;
 }
 
 .container__types {

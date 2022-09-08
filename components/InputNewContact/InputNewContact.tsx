@@ -5,10 +5,11 @@ import styles from './InputNewContact.module.css';
 
 type IProps = {
   setContact: (cont: string) => void,
-  contact: string
+  contact: string,
+  addContact(): void
 }
 
-export default function InputNewContact({ setContact, contact }: IProps) {
+export default function InputNewContact({ setContact, contact, addContact }: IProps) {
   return (
     <div className={styles.container}>
       <input
@@ -17,7 +18,10 @@ export default function InputNewContact({ setContact, contact }: IProps) {
         onChange={(e) => setContact(e.target.value)}
         placeholder="Coloque aqui o link de contato"
       />
-      <RiSendPlane2Line className={styles.buttom__addNewContact} />
+      <RiSendPlane2Line
+        className={styles.buttom__addNewContact}
+        onClick={addContact}
+      />
     </div>
   );
 }

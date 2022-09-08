@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -8,6 +9,7 @@ import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
 import IPokemon from '../../util/IPolemon';
 import InputNewContact from '../InputNewContact/InputNewContact';
+import InputNewName from '../InputNewName/InputNewName';
 import PokemonTypes from '../PokemonTypes/PokemonTypes';
 import styles from './Pokemon.module.css';
 
@@ -16,6 +18,14 @@ type IProps = {
   getPokemonData(): Promise<void>,
   contact: string,
   setContact: (cont: string) => void
+  name: string,
+  setName: (nam: string) => void,
+  typyingNewName: boolean,
+  setTypyingNewName: (typ: boolean) => void,
+  changeName(): void
+  typing: boolean,
+  setTypying: (typ: any) => void,
+  addContact(): void
 }
 
 export default function Pokemon({
@@ -23,8 +33,15 @@ export default function Pokemon({
   getPokemonData,
   contact,
   setContact,
+  name,
+  setName,
+  typyingNewName,
+  setTypyingNewName,
+  changeName,
+  typing,
+  setTypying,
+  addContact,
 }: IProps) {
-  const [typing, setTypying] = useState(false);
   return (
     <main className={styles.container}>
       <div
@@ -51,23 +68,35 @@ export default function Pokemon({
               </div>
             </div>
           </div>
-          <h1 className={styles.title__pokemonName}>
-            {pokemon.name}
-          </h1>
+          {typyingNewName ? (
+            <InputNewName
+              name={name}
+              setName={setName}
+              changeName={changeName}
+            />
+          ) : (
+            <div
+              onClick={() => setTypyingNewName(true)}
+              className={styles.title__pokemonName}
+            >
+              {pokemon.name}
+            </div>
+          )}
           <div className={styles.division__contactList} />
           <div className={styles.container__listTitle}>
             <h1 className={styles.title__contactList}>
               Lista de contatos
             </h1>
             <GrAddCircle
-              onClick={() => setTypying((prev) => !prev)}
+              onClick={() => setTypying((prev: any) => !prev)}
               className={styles.button__addContact}
             />
           </div>
-          { typing && (
+          {typing && (
             <InputNewContact
               contact={contact}
               setContact={setContact}
+              addContact={addContact}
             />
           )}
         </div>
