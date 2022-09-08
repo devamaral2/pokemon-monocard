@@ -6,10 +6,10 @@ import CardContact from '../CardContact/CardContact';
 import CardType from '../CardType/CardType';
 import styles from './PokemonCard.module.css';
 
-export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
+export default function PokemonCard({ pokemon, key }: { pokemon: IPokemon, key: number }) {
   return (
-    <div className={styles.container}>
-      <div className={styles.container__top}>
+    <div data-cy={`card${key}`} className={styles.container}>
+      <div data-cy={`card-name${key}`} className={styles.container__top}>
         <h2>{pokemon.name}</h2>
         <div className={styles.container__image}>
           <Image

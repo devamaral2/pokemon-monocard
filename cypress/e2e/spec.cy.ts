@@ -6,12 +6,14 @@ describe('Todos os testes de integração', () => {
   });
 
   describe('Testes dos elementos presentes no Header', () => {
-    // cy.fixture('mockList').then((mockList) => {
-    // cy.intercept('GET', '**pokemon', {
-    //   statusCode: 200,
-    //   body: mockList,
-    // }).as('mockList');
-    // });
+    beforeEach(() => {
+      cy.fixture('mockList').then((mockList) => {
+        cy.intercept('GET', '**pokemon', {
+          statusCode: 200,
+          body: mockList,
+        }).as('mockList');
+      });
+    });
     // cy.visit('https://pokemon-monocard.vercel.app/');
     it('Todos os elementos são renderizados corretamente', () => {
       cy.get('[data-cy=pokemon-logo]');
@@ -35,12 +37,6 @@ describe('Todos os testes de integração', () => {
         cy.intercept('GET', 'https://pokeapi.co/api/v2/pokemon/**', {
           statusCode: 200,
           body: mockPokemon,
-        }).as('mockPokemon');
-        cy.fixture('mockPokemon').then((mock) => {
-          cy.intercept('POST', '**pokemon', {
-            statusCode: 203,
-            body: mock,
-          });
         }).as('mockPokemon');
       });
     });
@@ -67,24 +63,45 @@ describe('Todos os testes de integração', () => {
       cy.get('[data-cy=newContact-add-btn]').click();
       cy.get('[data-cy=contact-name-1]').contains('instagram');
     });
-    it('O usuário consegue adicionar o pokemon à sua lista', () => {
-      cy.get('[data-cy=btn-add-pokemon]').click();
+  });
+
+  describe('Teste do btn para escolher outro pokemon', () => {
+    before(() => {
+      cy.fixture('mockPokemon2').then((mockPokemon2) => {
+        cy.intercept('GET', 'https://pokeapi.co/api/v2/pokemon/**', {
+          statusCode: 200,
+          body: mockPokemon2,
+        }).as('mockPokemon2');
+      });
+    });
+
+    it('O botão renderiza um novo pokemon para o usuário', () => {
+      cy.get('[data-cy=otherPokemon-btn]').click();
+      cy.get('[data-cy=pokemon-name]').contains('Aldair o José');
     });
   });
-  // describe('Teste do btn para escolher outro pokemon', () => {
-  //   before(() => {
-  //     cy.fixture('mockPokemon2').then((mockPokemon2) => {
-  //       cy.intercept('GET', 'https://pokeapi.co/api/v2/pokemon/**', {
-  //         statusCode: 200,
-  //         body: mockPokemon2,
-  //       }).as('mockPokemon2');
-  //     });
-  //   });
-  //   it('A pokebola é renderiza corretamente e pode ser clicada', () => {
-  //     cy.get('[data-cy=otherPokemon-btn]').click();
-  //     cy.get('[data-cy=pokemon-name]').contains('Aldair o José');
-  //   });
-  // });
+
+  describe('Testes para a lista de pokemons salvos', () => {
+    beforeEach(() => {
+      cy.fixture('mockList').then((mockList) => {
+        cy.intercept('GET', '**pokemon', {
+          statusCode: 200,
+          body: mockList,
+        }).as('mockList');
+      });
+    });
+
+    it('Todos os nomes de pokemon da lista foram renderizados', () => {
+      cy.get('[data-cy=list-link]').click();
+    });
+    // it('O link para a pagina de lista funciona corretamente', () => {
+    //   cy.url().should('be.equal', 'http://localhost:3000/list');
+    // });
+    // it('O link para a pagina da pokebola funciona corretamente', () => {
+    //   cy.get('[data-cy=pokebola-link]').click();
+    //   cy.url().should('be.equal', 'http://localhost:3000/');
+    // });
+  });
 });
 
 export { };
