@@ -24,13 +24,15 @@ function Icon({ contact }: { contact: string }) {
 
 export default function ContactList({ contact }: { contact: string }) {
   return (
-    <Link href={contact}>
-      <a className={styles.container}>
-        <Icon contact={contact} />
-        <span className={styles.text__link}>
-          {contact}
-        </span>
-      </a>
-    </Link>
+    <div className={styles.container}>
+      <Link href={contact}>
+        <a className={styles.container__link}>
+          <Icon contact={contact} />
+          <span className={styles.text__link}>
+            {contact}
+          </span>
+        </a>
+      </Link>
+    </div>
   );
 }
