@@ -8,8 +8,6 @@ export default function Pokeball({ generatePokemon }: { generatePokemon(): Promi
   return (
     <main className={styles.container}>
       <div className={styles.container}>
-
-        {/* <div className={styles.shadow} /> */}
         <div
           className={styles.pokeball}
           data-cy="pokeball"

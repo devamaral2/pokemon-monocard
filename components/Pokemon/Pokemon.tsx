@@ -51,6 +51,7 @@ export default function Pokemon({
       data-cy="pokemon"
     >
       <div
+        data-cy="otherPokemon-btn"
         className={styles.button__otherPokemon}
         onClick={getPokemonData}
       >
@@ -82,6 +83,7 @@ export default function Pokemon({
             />
           ) : (
             <div
+              data-cy="pokemon-name"
               onClick={() => setTypyingNewName(true)}
               className={styles.title__pokemonName}
             >
