@@ -22,12 +22,13 @@ function Icon({ contact }: { contact: string }) {
   return <BsLink45Deg className={styles.contact__icon} />;
 }
 
-export default function CardContact({ contact, i }: { contact: string, i: number}) {
+export default function CardContact({ contact, i, fi }:
+  { contact: string, i: number, fi: number }) {
   return (
     <Link href={contact}>
       <a className={styles.container}>
         <Icon contact={contact} />
-        <span data-cy={`contact-${i}`} className={styles.text__link}>
+        <span data-cy={`contact-${fi}-${i}`} className={styles.text__link}>
           {contact}
         </span>
       </a>

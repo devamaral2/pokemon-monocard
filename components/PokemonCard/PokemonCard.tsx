@@ -25,14 +25,15 @@ export default function PokemonCard({ pokemon, i }: { pokemon: IPokemon, i: numb
         <div className={styles.container__types}>
           {pokemon.types.length !== 0
             && pokemon.types
-              .map((type: string, index: number) => <CardType key={index} type={type} i={index} />)}
+              .map((type: string, index: number) => (
+                <CardType key={index} type={type} i={index} fi={i} />))}
         </div>
         Pokemon links:
         <div className={styles.container__contactList}>
           {pokemon.contactList.length !== 0
             && pokemon.contactList
               .map((contact: string, index: number) => (
-                <CardContact key={index} contact={contact} i={index} />))}
+                <CardContact key={index} contact={contact} i={index} fi={i} />))}
         </div>
       </div>
     </div>

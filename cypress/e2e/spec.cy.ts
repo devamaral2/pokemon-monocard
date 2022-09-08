@@ -93,18 +93,25 @@ describe('Todos os testes de integração', () => {
 
     it('Todos os nomes de pokemon da lista foram renderizados', () => {
       cy.get('[data-cy=list-link]').click();
-      cy.get('[data-cy=card-0]').children('[data-cy=contact-1]');
+      cy.get('[data-cy=card-0]');
       cy.get('[data-cy=card-1]');
       cy.get('[data-cy=card-name-0]').contains('João José');
       cy.get('[data-cy=card-name-1]').contains('Aldair o José');
     });
-    // it('O link para a pagina de lista funciona corretamente', () => {
-    //   cy.url().should('be.equal', 'http://localhost:3000/list');
-    // });
-    // it('O link para a pagina da pokebola funciona corretamente', () => {
-    //   cy.get('[data-cy=pokebola-link]').click();
-    //   cy.url().should('be.equal', 'http://localhost:3000/');
-    // });
+
+    it('Todos os tipos dos pokemons da lista foram renderizados', () => {
+      cy.get('[data-cy=type-0-0]');
+      cy.get('[data-cy=type-0-1]');
+      cy.get('[data-cy=type-1-0]');
+      cy.get('[data-cy=type-1-1]');
+    });
+
+    it('Todos os links dos pokemons da lista foram renderizados corretamente', () => {
+      cy.get('[data-cy=contact-0-0]').contains('https://www.linkedin.com/in/rafael-amaral-naves-avelar/');
+      cy.get('[data-cy=contact-0-1]').contains('https://www.instagram.com/luvadepedreiro/?hl=en');
+      cy.get('[data-cy=contact-1-0]').contains('https://www.linkedin.com/in/rafael-amaral-naves-avelar/');
+      cy.get('[data-cy=contact-1-1]').contains('https://www.instagram.com/luvadepedreiro/?hl=en');
+    });
   });
 });
 
