@@ -25,10 +25,12 @@ export default function Home() {
     <div className="container">
       <Header pathname={router.pathname} />
       { pokeballClicked
-        ? (<Pokemon
-            getPokemonData={getPokemonData} 
-            pokemon={pokemon} 
-          />)
+        ? (
+          <Pokemon
+            getPokemonData={getPokemonData}
+            pokemon={pokemon}
+          />
+        )
         : (<Pokeball generatePokemon={generatePokemon} />)}
     </div>
   );

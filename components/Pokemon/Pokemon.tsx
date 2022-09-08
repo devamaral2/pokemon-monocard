@@ -38,7 +38,16 @@ export default function Pokemon({ pokemon, getPokemonData }: any) {
               </div>
             </div>
           </div>
-          <h1>{pokemon.name}</h1>
+          <h1 className={styles.title__pokemonName}>
+            {pokemon.name}
+          </h1>
+          {/* <div className={styles.container__contactListButton}> */}
+            <div className={styles.division__contactList} />
+            <h1>
+            Lista de contatos
+          </h1>
+            {/* <div className={styles.button__addContact} /> */}
+          {/* </div> */}
         </div>
       )}
     </main>
