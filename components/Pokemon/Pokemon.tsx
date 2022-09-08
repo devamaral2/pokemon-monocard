@@ -27,6 +27,7 @@ type IProps = {
   typing: boolean,
   setTypying: (typ: any) => void,
   addContact(): void
+  savePokemon(): void
 }
 
 export default function Pokemon({
@@ -42,6 +43,7 @@ export default function Pokemon({
   typing,
   setTypying,
   addContact,
+  savePokemon,
 }: IProps) {
   return (
     <main className={styles.container}>
@@ -100,10 +102,16 @@ export default function Pokemon({
               addContact={addContact}
             />
           )}
-          { pokemon.contactList.map((cont: string, i: number) => (
+          {pokemon.contactList.map((cont: string, i: number) => (
             <ContactList key={i} contact={cont} />))}
         </div>
       )}
+      <div
+        className={styles.button__otherPokemon}
+        onClick={savePokemon}
+      >
+        Adicione o pokemon
+      </div>
     </main>
   );
 }

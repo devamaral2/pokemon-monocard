@@ -3,8 +3,9 @@ import { useState } from 'react';
 import Header from '../components/Header/Header';
 import Pokeball from '../components/Pokeball/Pokeball';
 import Pokemon from '../components/Pokemon/Pokemon';
-import getPokemon from '../externalApi/getPokemon';
+import getPokemon from '../apiCall/getPokemon';
 import IPokemon from '../util/IPolemon';
+import savePokemonAPI from '../apiCall/savePokemonAPI';
 
 /* eslint-disable react/jsx-filename-extension */
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
   const addContact = () => {
     setPokemon((prev) => ({ ...prev, contactList: [...prev.contactList, contact] }));
     setTypying(false);
-    console.log(pokemon);
+    setContact('');
   };
 
   const changeName = () => {
@@ -43,6 +44,11 @@ export default function Home() {
   const generatePokemon = async () => {
     setPokeballClicked(true);
     await getPokemonData();
+  };
+
+  const savePokemon = async () => {
+    await savePokemonAPI(pokemon);
+    setPokeballClicked(false);
   };
 
   return (
@@ -63,6 +69,7 @@ export default function Home() {
             typing={typing}
             setTypying={setTypying}
             addContact={addContact}
+            savePokemon={savePokemon}
           />
         )
         : (<Pokeball generatePokemon={generatePokemon} />)}
