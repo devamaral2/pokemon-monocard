@@ -10,6 +10,7 @@ export default function Pokeball({ generatePokemon }: { generatePokemon(): Promi
       <div className={styles.shadow} />
       <div
         className={styles.pokeball}
+        data-cy="pokeball"
         onClick={generatePokemon}
       >
         <div className={styles.top} />
