@@ -26,6 +26,30 @@ describe('Testes dos elementos presentes no Header', () => {
     cy.get('[data-cy=pokebola-link]').click();
     cy.url().should('be.equal', 'http://localhost:3000/');
   });
+});
+
+describe('Testes da pokebola e do pokemon', () => {
+  before(() => {
+    cy.fixture('mockPokemon').then((mockPokemon) => {
+      cy.intercept('GET', 'https://pokeapi.co/api/v2/pokemon/**', {
+        statusCode: 200,
+        body: mockPokemon,
+      }).as('mockPokemon');
+    });
+    cy.viewport('macbook-15');
+    cy.visit('http://localhost:3000/');
+    // cy.visit('https://pokemon-monocard.vercel.app/');
+  });
+  it('A pokebola é renderiza corretamente e pode ser clicada', () => {
+    cy.get('[data-cy=pokeball]').click();
+    cy.get('[data-cy=pokemon]');
+  });
+  it('A pokebola é renderiza corretamente e pode ser clicada', () => {
+    // cy.get('[data-cy=pokeball]').click();
+    cy.get('[data-cy=pokemon]');
+  });
+  // it('O pokemon é renderizado corretamente', () => {
+  // });
   // it('passes23', () => {
   //   cy.get('li').contains('pikaju');
   // });
@@ -38,9 +62,6 @@ describe('Testes dos elementos presentes no Header', () => {
   //   });
   //   cy.get('[data-cy=but]').click();
   // });
-  it('A pokebola renderiza corretamente e ', () => {
-    cy.get('[data-cy=pokeball]').click();
-  });
 });
 
-export {};
+export { };

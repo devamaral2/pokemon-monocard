@@ -6,16 +6,19 @@ import styles from './Pokeball.module.css';
 
 export default function Pokeball({ generatePokemon }: { generatePokemon(): Promise<void> }) {
   return (
-    <main className="container">
-      <div className={styles.shadow} />
-      <div
-        className={styles.pokeball}
-        data-cy="pokeball"
-        onClick={generatePokemon}
-      >
-        <div className={styles.top} />
-        <div className={styles.bottom} />
-        <div className={styles.middle} />
+    <main className={styles.container}>
+      <div className={styles.container}>
+
+        {/* <div className={styles.shadow} /> */}
+        <div
+          className={styles.pokeball}
+          data-cy="pokeball"
+          onClick={generatePokemon}
+        >
+          <div className={styles.top} />
+          <div className={styles.bottom} />
+          <div className={styles.middle} />
+        </div>
       </div>
       <div className={styles.span__messange}>
         <Image

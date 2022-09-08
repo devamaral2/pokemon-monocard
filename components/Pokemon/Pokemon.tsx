@@ -46,7 +46,10 @@ export default function Pokemon({
   savePokemon,
 }: IProps) {
   return (
-    <main className={styles.container}>
+    <main
+      className={styles.container}
+      data-cy="pokemon"
+    >
       <div
         className={styles.button__otherPokemon}
         onClick={getPokemonData}
