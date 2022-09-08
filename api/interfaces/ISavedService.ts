@@ -9,6 +9,6 @@ export default interface ISavedService {
     pokemonId: number,
     image: string,
     contactList: i.IContact[] | [],
-    types: i.IType[],
+    types: string[],
   ): Promise<void>;
 }

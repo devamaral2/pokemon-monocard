@@ -20,7 +20,7 @@ export default class SavedService implements ISavedService {
     pokemonId: number,
     image: string,
     contactList: i.IContact[] | [],
-    types: i.IType[],
+    types: string[],
   ): Promise<void> {
     await this._repository.create(name, pokemonId, image, new Date(), contactList, types);
   }

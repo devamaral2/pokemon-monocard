@@ -11,6 +11,6 @@ export default interface ISavedRepository {
     image: string,
     timestamp: Date,
     contactList: i.IContact[] | [],
-    types: i.IType[],
+    types: string[],
   ): Promise<void>;
 }

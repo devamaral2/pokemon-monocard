@@ -32,7 +32,7 @@ export default class SavedRepository implements ISavedRepository {
     image: string,
     timestamp: Date,
     contactList: i.IContact[],
-    types: i.IType[],
+    types: string[],
   ): Promise<void> {
     const saved = await this.getCollection();
     await saved.insertOne({

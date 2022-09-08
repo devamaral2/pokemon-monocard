@@ -26,7 +26,7 @@ export default class SavedController {
     pokemonId: number,
     image: string,
     contactList: i.IContact[],
-    types: i.IType[],
+    types: string[],
   ) {
     try {
       await this._service.create(name, pokemonId, image, contactList, types);
