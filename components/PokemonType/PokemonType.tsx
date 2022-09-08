@@ -4,7 +4,7 @@ import styles from './PokemonTypes.module.css';
 
 export default function PokemonTypes({ type }: { type: string }) {
   return (
-    <div className={styles.container__types}>
+    <div className={styles.container__type}>
       <Image
         width="40px"
         height="40px"

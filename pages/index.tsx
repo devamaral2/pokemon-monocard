@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 import Pokeball from '../components/Pokeball/Pokeball';
 import Pokemon from '../components/Pokemon/Pokemon';
 import getPokemon from '../apiCall/getPokemon';
-import IPokemon from '../util/IPolemon';
+import IPokemon from '../util/IPoKemon';
 import savePokemonAPI from '../apiCall/savePokemonAPI';
 
 /* eslint-disable react/jsx-filename-extension */

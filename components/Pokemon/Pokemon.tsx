@@ -7,11 +7,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { GrAddCircle } from 'react-icons/gr';
-import IPokemon from '../../util/IPolemon';
+import IPokemon from '../../util/IPoKemon';
 import ContactList from '../ContactList/ContactList';
 import InputNewContact from '../InputNewContact/InputNewContact';
 import InputNewName from '../InputNewName/InputNewName';
-import PokemonTypes from '../PokemonTypes/PokemonTypes';
+import PokemonTypes from '../PokemonType/PokemonType';
 import styles from './Pokemon.module.css';
 
 type IProps = {
