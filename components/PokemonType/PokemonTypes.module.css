@@ -1,3 +1,17 @@
 .container__type {
-  margin: 2px;
+  position: relative;
+  /* top: -20px; */
+  right: 5px
+}
+
+.container__type1 {
+  position: relative;
+  top: -20px;
+  right: -5px
+}
+
+.container__type0 {
+  position: relative;
+  top: 35px;
+  right: -20px
 }
