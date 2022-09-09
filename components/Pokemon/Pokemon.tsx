@@ -70,8 +70,8 @@ export default function Pokemon({
                 alt="pokemon "
               />
               <div className={styles.container__types}>
-                {pokemon.types.map((type: string, index: number) => (
-                  <PokemonTypes key={index} type={type} />))}
+                {pokemon.types.map((type: string, i: number) => (
+                  <PokemonTypes key={i} type={type} length={pokemon.types.length} i={i} />))}
               </div>
             </div>
           </div>

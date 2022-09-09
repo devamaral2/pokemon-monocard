@@ -56,8 +56,8 @@
 .container__types {
   display: flex;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -20px;
+  right: -60px;
 }
 
 .division__contactList {
