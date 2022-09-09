@@ -5,8 +5,15 @@
 }
 
 .container__logo__monocard {
-  position: absolute;
-  top: 13rem;
+  position: relative;
+  top: -4rem;
+}
+
+.container__images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container__links {
