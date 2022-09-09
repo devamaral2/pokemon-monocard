@@ -22,21 +22,24 @@ export default function Header({ pathname }: any) {
         <title>Pokemon monocard</title>
         <link rel="icon" href="/pokebola-icon.png" />
       </Head>
-      <Image
-        data-cy="pokemon-logo"
-        width={500}
-        height={280}
-        src="/pokemon.png"
-        alt="pokemon logo"
-      />
-      <div className={styles.container__logo__monocard}>
+      <div className={styles.container__images}>
         <Image
-          data-cy="monocard-logo"
-          width={250}
-          height={40}
-          src="/monocard.png"
-          alt="monocard logo"
+          data-cy="pokemon-logo"
+          width={500}
+          height={280}
+          src="/pokemon.png"
+          alt="pokemon logo"
         />
+        <div className={styles.container__logo__monocard}>
+          <Image
+            data-cy="monocard-logo"
+            width={250}
+            height={40}
+            src="/monocard.png"
+            alt="monocard logo"
+          />
+        </div>
+
       </div>
       <div className={styles.container__links}>
         <Link href="/">
